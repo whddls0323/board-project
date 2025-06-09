@@ -106,9 +106,8 @@
 		</div>
 	</form>
 
-	<div th:if="${board.writer == session.username}">
-		<button type="button" th:onclick="'location.href=\'/delete/' + ${board.seq} + '\';'" class="boardDelete">게시글 삭제</button>
-	</div>
+	<button type="button" th:if="${board.writer == session.username}"
+        	th:onclick="'location.href=\'/delete/' + ${board.seq} + '\';'" class="boardDelete">게시글 삭제</button>
 	<button type="button" onclick="location.href='/boardList';" class="boardList">게시글 목록</button>
 
 	<script src="/update.js"></script>
