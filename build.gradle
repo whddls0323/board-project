@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.1'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.springlab'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations { //oauth 테스트중
+	compileOnly {
+		extendsFrom annotationProcessor 
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'jakarta.servlet:jakarta.servlet-api' //스프링부트 3.0 이상
+	//implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api' //스프링부트 3.0 이상
+	//implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl' //스프링부트 3.0 이상
+	//implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' //스프링부트에 내장된 tomcat은 jsp 엔진을 포함하고 있지않아 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-security' //oauth 테스트중
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' //oauth 테스트중
+    implementation 'javax.xml.bind:jaxb-api:2.3.1' //oauth 테스트중
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	//runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok' //oauth 테스트중
+	
+	testImplementation 'org.projectlombok:lombok' //oauth 테스트중
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test' //oauth 테스트중
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

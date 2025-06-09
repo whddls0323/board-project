@@ -1,0 +1,182 @@
+body {
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
+	}
+	
+#board-save {
+	background-clip:border-box;
+	background-origin:padding-box;
+	background-color: rgb(59,72,144);
+	background-size:auto;
+	border-radius:2px;
+	border-color: rgb(41,54,124);
+	border-style:solid;
+	color:white;
+	cursor:pointer;
+	font-size:14px;
+	font-weight:700;
+	height:35px;
+	float: right;
+	margin-right:100px;
+	margin-bottom:10px;
+}
+
+h1{
+	width:713.6113px;
+}
+
+.title{
+	text-decoration:none;
+}
+
+.title:hover {
+	text-decoration:underline;
+}
+
+ul {
+	box-sizing:border-box;
+	color:rgb(0,0,0);
+	color-scheme:light;
+	display:inline-block;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	font-weight:400;
+	height:38.5px;
+	line-height:22.5px;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin-block:0px;
+	margin:0px;
+	padding-inline-start:0px;
+	text-size-adjust:100%;
+}
+
+li {
+	box-sizing:border-box;
+	display:inline-block;
+	padding: 3.75px 0px 2.25px 0px;
+	position:relative;
+	text-size-adjust:100%;
+}
+
+#user-menu{
+	background-color:rgb(0,0,0,0);
+	box-sizing:border-box;
+	color:rgb(255,255,255);
+	cursor:pointer;
+	display:inline-block;
+	font-size:18.75px;
+	height:28.125px;
+	line-height:28.125px;
+	outline-color:rgb(255,255,255);
+	outline-style:none;
+	outline-width:0px;
+	padding:0px;
+	text-decoration-color:rgb(255,255,255);
+	text-decoration: none;
+	text-wrap-mode:nowrap;
+	white-space-collapse:collapse;
+}
+
+.session-name {
+	box-sizing:border-box;
+	color:rgb(255,255,255);
+	cursor:pointer;
+	display:inline;
+	font-size:18.75px;
+	text-wrap-mode:nowrap;
+	white-space-collapse:collapse;
+	
+}
+
+#user {
+	background-color:rgb(61, 65, 77);
+	color:rgb(0,0,0);
+	display: inline-block;
+	float: right;
+	margin-left: 100%;
+	width:86.3906px;
+}
+
+#logout-menu {
+	background-color:rgb(61, 65, 77);
+	display: inline-block;
+	float: right;
+	width:86.3906px;
+}
+
+#logout-link {
+	background-color:rgb(0,0,0,0);
+	box-sizing:border-box;
+	color: white !important;
+	cursor:pointer;
+	display:inline-block;
+	font-size:18.75px;
+	height:28.125px;
+	line-height:28.125px;
+	outline-color:rgb(255,255,255);
+	outline-style:none;
+	outline-width:0px;
+	padding:0px;
+	text-decoration-color:rgb(255,255,255);
+	text-decoration: none;
+	text-wrap-mode:nowrap;
+	white-space-collapse:collapse;
+}
+
+em {
+	border-color:rgb(211, 25, 0);
+	color:rgb(211, 25, 0);
+	margin: 0px 0px 0px 9px;
+	padding: 6px 0px 0px 0px;
+	text-decoration-color:rgb(211, 25, 0);
+	text-decoration-line:underline;
+}
+
+em,.other-page,.paging_wrap {
+	background-attachment:scroll;
+	background-clip:border-box;
+	background-color:rgba(0,0,0,0);
+	background-image:none;
+	background-origin:padding-box;
+	background-position-x:0%;
+	background-position-y:0%;
+	background-repeat:repeat;
+	background-size:auto;
+	border-image-outset:0;
+	border-image-repeat:stretch;
+	border-image-slice:100%;
+	border-image-source:none;
+	border-image-width:1;
+	border-style:none;
+	border-width:0px;
+	display:inline-block;
+	font-family:-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", arial, Dotum, 돋움, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:700;
+	height:20px;
+	line-height:20px;
+	text-decoration-style:solid;
+	text-decoration-thickness:auto;
+	vertical-align:baseline;
+}
+
+.other-page {
+	border-color:rgb(51,51,51);
+	color:rgb(51,51,51);
+	margin: 0px 0px 0px 9px;
+	padding: 6px 0px 0px 0px;
+	text-decoration-color:rgb(51,51,51);
+	text-decoration-line:none;
+}
+
+.paging_wrap {
+	border-color:rgb(0,0,0);
+	box-sizing:border-box;
+	margin: 5px 0px 0px 0px;
+	padding: 0px 121px 0px 121px;
+	width:700px;
+}

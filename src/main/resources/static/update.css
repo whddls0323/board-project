@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+body {
+	max-width: 660px;
+	margin: 0 auto;
+	text-align: center;
+}
+	
+.boardDelete,.boardList {
+	background-clip:border-box; /*요소를 border까지 확장*/
+	background-origin:padding-box; /*요소를 위,아래 border 제외*/
+	background-color: rgb(59,72,144);
+	background-size:auto;
+	border-radius:2px;
+	border-color: rgb(41,54,124);
+	border-style:solid;
+	color:white;
+	cursor:pointer;
+	font-size:14px;
+	font-weight:700;
+	height:35px;
+}
+	
+.boardTitle{
+	box-sizing: border-box;
+	width: 100%;
+	border:none;
+	outline:none;
+}
+
+input[type=submit] {
+	background-clip:border-box;
+	background-origin:padding-box;
+	background-color: rgb(102,102,102);
+	background-size:auto;
+	border-radius:2px;
+	border-color: rgb(68,68,68);
+	border-style:solid;
+	color:white;
+	cursor:pointer;
+	font-size:14px;
+	font-weight:700;
+	height:35px;
+	margin:5px;
+}
+
+.edge{
+	box-sizing:border-box; /* border를 넘지않고 차지한다.*/
+	border: 1px solid rgb(187,187,187);
+	color: rgb(0,0,0);
+	color-scheme:light; /*밝은 테마로 조정? */
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:14.25px;
+	font-weight:400;
+	line-height:21.375px;
+	margin-bottom:13.5px;
+	text-align:left;
+	text-size-adjust:100%; /*모바일에서의 텍스트 크기*/
+	width:638px;
+}
+
+.title{
+	background-color: rgb(238,238,238);
+	border-color: rgb(187,187,187);
+	border-bottom-style:dashed;
+	border-bottom-width:1px;
+	box-sizing:border-box;
+	clear:both; /*float 정렬 취소*/
+	color: rgb(0,0,0);
+	color-scheme:light;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:12.75px;
+	font-weight:400;
+	height:26.2344px;
+	line-height:19.125px;
+	padding:3px 7.5px;
+	text-align:left;
+	text-size-adjust:100%;
+	width:636px;
+	display: block;
+}
+	
+.left {
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:inline;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:12.75px;
+	font-weight:400;
+	height:auto;
+	line-height:19.125px;
+	text-align:left;
+	text-size-adjust:100%;
+	width:auto;	
+	word-break:break-all;
+}
+	
+.right {
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:flex;
+	float:right;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	flex-wrap:wrap;
+	font-size:12.75px;
+	font-weight:400;
+	height:19.125px;
+	line-height:19.125px;
+	text-align:left;
+	text-size-adjust:100%;
+	width:auto;
+	word-break:break-all;
+}
+	
+.body {
+	box-sizing:border-box;
+	display:block;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:14.25px;
+	font-weight:400;
+	line-height:21.375px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	padding:7.5px;
+	position:relative;
+	text-size-adjust:100%;
+	text-align:left;
+}
+.content {
+	box-sizing:border-box;
+	display:inline;
+	height:auto;
+	width:auto;
+}
+pre {
+	box-sizing:border-box;
+	display:inline;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	overflow-wrap:break-word;
+	overflow-x:auto;
+	overflow-y:auto;
+	text-wrap-mode:wrap;
+	word-break:break-all;
+}
+.reply-form__container{
+	border: 1px solid rgb(187,187,187);
+	border-radius:5px;
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	font-weight:400;
+	line-height:22.5px;
+	position:relative;
+	text-align:left;
+	text-size-adjust:100%;
+	width:638px;
+}
+
+.reply-form__info{
+	border-color: rgb(187,187,187);
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:flex;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	font-weight:400;
+	height:40.5px;
+	justify-content:space-between;
+	line-height:22.5px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	text-align:left;
+	text-size-adjust:100%;
+	width:636px;
+}
+
+.reply-form__user-info{
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:flex;
+	flex-grow:1;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	font-weight:400;
+	height:39.5px;
+	line-height:22.5px;
+	padding:7.5px;
+	text-align:left;
+	text-size-adjust:100%;
+	width:501.578px;
+}
+
+.replay-form-title {
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:block;
+	flex-shrink:0; /*아이템이 flex-basis값보다 작아질수 있는지를 결정*/
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:12px;
+	font-weight:400;
+	height:24.5px;
+	line-height:24px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:6px;
+	margin-right:24px;
+	text-align:left;
+	text-size-adjust:100%;
+	user-select:none;
+	width:52.2188px;
+}
+
+.reply-form-user-input{
+	background-color: rgba(0,0,0,0);
+	border-color: rgb(0,0,0);
+	border-radius:3px;
+	border-style:none;
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:block;
+	flex-grow:1; /*아이템이 flex-basis값보다 커질수 있는지를 결정*/
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	height:24.5px;
+	line-height:22.5px;
+	max-width:180px;
+	opacity:0.5; /*투명도*/
+	text-overflow:ellipsis; /*...으로 말줄임*/
+	text-size-adjust:100%;
+	user-select:none; /*선택 방지*/
+	width:180px;
+}
+
+.reply-form-textarea-wrapper{
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	font-weight:400;
+	height:112.5px;
+	line-height:22.5px;
+	padding-bottom:0px;
+	padding-top:7.5px;
+	padding-left:7.5px;
+	padding-right:7.5px;
+	position:relative;
+	text-align:left;
+	text-size-adjust:100%;
+	width:638px;
+}
+
+.reply-form-textarea{
+	background-color: rgba(0,0,0,0);
+	border-color: rgb(0,0,0);
+	border-style:none;
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	line-height:22.5px;
+	min-height:60px;
+	outline-color: rgb(0,0,0);
+	outline-offset:0px; 
+	outline-style:none; /*border 밖 테두리 제거*/
+	outline-width:0px;
+	resize:none; /* textarea의 늘리진 대각선을 숨김*/
+	text-size-adjust:100%;
+	width:623px;
+}
+
+.reply-form__submit-button-wrapper{
+	bottom:0px;
+	box-sizing:border-box;
+	display:none;
+	height:auto;
+	justify-content:flex-end;
+	padding-bottom:7.5px;
+	padding-right:7.5px;
+	position:absolute; /*부모요소 기준 배치*/
+	right:0px;
+	width:auto;
+}
+
+.reply-form__submit-button{
+	appearance:button;
+	background-color: rgb(255,255,255);
+	border-color: rgb(187,187,187);
+	border-radius:4px;
+	border-style:solid;
+	border-width:1px;
+	cursor:pointer;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	height:auto;
+	line-height:22.5px;
+	outline-color:rgb(0,0,0);
+	outline-style:none;
+	outline-width:0px;
+	overflow-x:visible; /*안의 내용이 더 길때 어떻게 보일지를 결정*/
+	overflow-y:visible; /*안의 내용이 더 길때 어떻게 보일지를 결정*/
+	padding-block:3.75px;
+	padding:3.75px 22.5px;
+	padding-inline:22.5px;
+	transition-duration:0.3s; /*0.3초만에 모양이 변경됨.*/
+	width:auto;
+}
+
+.sep {
+	box-sizing:border-box;
+	color: rgb(0,0,0);
+	color-scheme:light;
+	display:block;
+	text-align: center;
+	width:15px;
+}
+
+time {
+	box-sizing:border-box;
+}
+
+.commentUpdate,.commentDelete{
+	background-color: rgba(0,0,0,0);
+	box-sizing:border-box;
+	color:rgb(0,0,0);
+	cursor:pointer;
+	outline-color: rgb(0,0,0);
+	outline-style:none;
+	outline-width:0px;
+	text-decoration-color:rgb(0,0,0);
+	text-decoration-line:none;
+	text-decoration-style:solid;
+	text-decoration-thickness:auto;
+}
+
+ul {
+	box-sizing:border-box;
+	color:rgb(0,0,0);
+	color-scheme:light;
+	display:inline-block;
+	font-family:QANrPkTKkPzwQk1u4aWP, -apple-system, BlinkMacSystemFont, NanumBarunGothic, system-ui, sans-serif;
+	font-size:15px;
+	font-weight:400;
+	height:38.5px;
+	line-height:22.5px;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin-block:0px;
+	margin:0px;
+	padding-inline-start:0px;
+	text-size-adjust:100%;
+}
+
+li {
+	box-sizing:border-box;
+	display:inline-block;
+	padding: 3.75px 0px 2.25px 0px;
+	position:relative;
+	text-size-adjust:100%;
+}
+
+#user-menu{
+	background-color:rgb(0,0,0,0);
+	box-sizing:border-box;
+	color:rgb(255,255,255);
+	cursor:pointer;
+	display:inline-block;
+	font-size:18.75px;
+	height:28.125px;
+	line-height:28.125px;
+	outline-color:rgb(255,255,255);
+	outline-style:none;
+	outline-width:0px;
+	padding:0px;
+	text-decoration-color:rgb(255,255,255);
+	text-decoration: none;
+	text-wrap-mode:nowrap;
+	white-space-collapse:collapse;
+}
+
+.sessionName {
+	box-sizing:border-box;
+	color:rgb(255,255,255);
+	cursor:pointer;
+	display:inline;
+	font-size:18.75px;
+	text-wrap-mode:nowrap;
+	white-space-collapse:collapse;
+}
+
+#user {
+	background-color:rgb(61, 65, 77);
+	color:rgb(0,0,0);
+	display: inline-block;
+	float: right;
+	margin-left: 100%;
+	width:86.3906px;
+}
+
+#logout-menu {
+	background-color:rgb(61, 65, 77);
+	display: inline-block;
+	float: right;
+	width:86.3906px;
+}
+
+#logout-link {
+	background-color:rgb(0,0,0,0);
+	box-sizing:border-box;
+	color: white !important;
+	cursor:pointer;
+	display:inline-block;
+	font-size:18.75px;
+	height:28.125px;
+	line-height:28.125px;
+	outline-color:rgb(255,255,255);
+	outline-style:none;
+	outline-width:0px;
+	padding:0px;
+	text-decoration-color:rgb(255,255,255);
+	text-decoration: none;
+	text-wrap-mode:nowrap;
+	white-space-collapse:collapse;
+}

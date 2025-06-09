@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>게시글 상세 정보</title>
+<link rel="stylesheet" href="/update.css" />
+</head>
+<body>
+	<div id="user">
+		<ul>
+			<li>
+				<a id="user-menu"><span class="sessionName" th:text="${session.username}">사용자명</span></a>
+			</li>
+		</ul>
+	</div>
+	<div id="logout-menu" style="display: none;">
+		<a href="/logout" id="logout-link">로그아웃</a>
+	</div>
+	<h1 style="width:573.6222px;">게시글 상세 정보</h1>
+	<hr>
+	<div th:if="${board != null}">
+		<form th:action="@{/update/{seq}(seq=${board.seq})}" method="post" style="display:inline-block;width:100%;">
+			<input type="hidden" name="seq" th:value="${board.seq}" />
+			<table border="1" cellpadding="0" cellspacing="0" style="width:100%;">
+				<tr>
+					<td bgcolor="orange" width="70">제목</td>
+					<td align="left">
+						<span th:if="${board.writer == session.username}">
+							<input type="text" class="boardTitle" name="title" th:value="${board.title}" />
+						</span>
+						<span th:if="${board.writer != session.username}" th:text="${board.title}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">작성자</td>
+					<td align="left" id="boardNickname" th:attr="data-board-nickname=${board.writer}" th:text="${board.writer}"></td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">내용</td>
+					<td align="left">
+						<div th:if="${images != null and !#lists.isEmpty(images)}">
+							<div th:each="image : ${images}">
+								<img th:if="${image != null and image.url != null}" th:src="${image.url}" style="width:400px; height:400px; object-fit:contain" />
+							</div>
+						</div>
+						<textarea class="reply-form-textarea" name="content" cols="40" rows="10" style="box-sizing: border-box;width: 100%;"
+							th:readonly="${board.writer != session.username}"
+							th:text="${board.content}"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">등록일</td>
+					<td align="left" th:text="${#dates.format(board.regdate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">조회수</td>
+					<td align="left" th:text="${board.cnt}"></td>
+				</tr>
+				<tr th:if="${board.writer == session.username}">
+					<td colspan="2" align="center">
+						<input type="submit" value="게시글 수정" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<br />
+	<div th:if="${commentDtos != null and !#lists.isEmpty(commentDtos)}" id="comments-list" style="padding:11.25px;">
+		<div th:each="comment : ${commentDtos}" class="edge" th:attr="data-comment-id=${comment.id}">
+			<div class="title">
+				<div class="left" th:attr="data-comment-nickname=${comment.nickname}" th:text="${comment.nickname}"></div>
+				<div class="right">
+					<time th:attr="datetime=${comment.regdate}">
+						<span th:text="${#dates.format(comment.updatedate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+					</time>
+					<span class="sep">&#124;</span>
+					<a class="commentUpdate" href="javascript:void(0);">수정</a>
+					<span class="sep">&#124;</span>
+					<a class="commentDelete" href="javascript:void(0);" th:attr="data-comment-id=${comment.id}">삭제</a>
+				</div>
+			</div>
+			<div class="body">
+				<div class="content">
+					<pre th:text="${comment.body}"></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<form style="width:638px;padding:11.25px;">
+		<div class="reply-form__container">
+			<div class="reply-form__info">
+				<div class="reply-form__user-info">
+					<span class="replay-form-title">댓글 작성</span>
+					<input class="reply-form-user-input" type="text" disabled="disabled" th:value="${session.username}" th:if="${session.username != null}" />
+				</div>
+			</div>
+			<div class="reply-form-textarea-wrapper">
+				<textarea id="commentTextarea" class="reply-form-textarea" name="comment" maxlength="8000" required="required" style="height:99.5px;"></textarea>
+				<div class="reply-form__submit-button-wrapper">
+					<button class="reply-form__submit-button" type="button">작성</button>
+					<button class="reply-form__submit-button" type="button" onclick="generateComment()">AI 댓글 생성</button>
+				</div>
+				<input type="hidden" id="new-comment-board-id" th:value="${board.seq}" th:if="${board != null}" />
+			</div>
+		</div>
+	</form>
+
+	<div th:if="${board.writer == session.username}">
+		<button type="button" th:onclick="'location.href=\'/delete/' + ${board.seq} + '\';'" class="boardDelete">게시글 삭제</button>
+	</div>
+	<button type="button" onclick="location.href='/boardList';" class="boardList">게시글 목록</button>
+
+	<script src="/update.js"></script>
+	<script src="/logout.js"></script>
+	<script>
+		function generateComment() {
+			const boardId = document.querySelector("#new-comment-board-id").value;
+			const url = "/api/board/" + boardId + "/ai-comment";
+			fetch(url, {
+				method: 'POST',
+				headers: {
+					'Content-Type':'application/json'
+				},
+				body: JSON.stringify({})
+			})
+			.then(res => res.json())
+			.then(data => {
+				const aiComment = data.aiComment || data.message || "AI 댓글 생성 실패";
+				document.getElementById("commentTextarea").value = aiComment;
+			})
+			.catch(err => {
+				alert("AI 댓글 생성 중 오류 발생");
+				console.error(err);
+			});
+		}
+	</script>
+</body>
+</html>
