@@ -42,7 +42,7 @@ public class BoardService {
 						&& !file.getOriginalFilename().isBlank()) {
 					UUID uuid = UUID.randomUUID();
 					String imageFileName = uuid + "_" + file.getOriginalFilename();
-					String uploadDir = "C:/upload/";
+					String uploadDir = "/home/ec2-user/uploads/";
 					String webPath = "/images/";
 					File uploadFolder = new File(uploadDir);
 					if (!uploadFolder.exists()) {
