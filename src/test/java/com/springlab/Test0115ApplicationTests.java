@@ -23,7 +23,6 @@ import com.springlab.repository.BoardRepository;
 import com.springlab.service.BoardService;
 
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
 class Test0115ApplicationTests {
 
 	@Mock
