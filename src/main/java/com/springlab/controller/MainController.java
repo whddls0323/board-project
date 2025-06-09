@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.springlab.service.AccountService;
 import com.springlab.service.BoardService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class MainController { // 처음 화면
 
