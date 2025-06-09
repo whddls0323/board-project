@@ -24,7 +24,13 @@ public class MainController { // 처음 화면
 	}
 
 	@GetMapping("/login")
-	public String login(Model model) {
+	public String login(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			String errorMessage = (String) session.getAttribute("errorMessage");
+			model.addAttribute("errorMessage", errorMessage);
+			session.removeAttribute("errorMessage");
+		}
 		return "login";
 	}
 }
