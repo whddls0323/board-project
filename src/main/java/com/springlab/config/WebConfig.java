@@ -9,6 +9,6 @@ public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**") // 를 하면
-				.addResourceLocations("file:///C:/upload/"); // 이 위치의 파일을 가져와 준다.
+				.addResourceLocations("file:/home/ec2-user/uploads/"); // 이 위치의 파일을 가져와 준다.
 	}
 }
